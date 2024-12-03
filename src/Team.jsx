@@ -21,7 +21,7 @@ const Team = () => {
       image:
         "https://media.licdn.com/dms/image/v2/D4D03AQHcjDBtZvz_tA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1684000509822?e=1737590400&v=beta&t=JNHeO0SaJdzFKaiBvMRAwtvVNTwtEP_zPXKDGJFR8pA",
       linkedin: "https://www.linkedin.com/in/ali-h-8aa76a13b/",
-      achievements: ["SOC Analyst", "SOC Intern", "Soft Services Intern","soc his boss"],
+      achievements: ["SOC Analyst", "SOC Intern", "Soft Services Intern"],
     },
     {
       name: "Ahmed Alagari",
