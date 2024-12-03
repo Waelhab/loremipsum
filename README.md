@@ -1,8 +1,72 @@
-# React + Vite
+# Aflam: Centralized Cinema Experience
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Aflam** is a cutting-edge platform designed to revolutionize the moviegoing experience in Saudi Arabia. By integrating multiple cinema chains such as **Muvi**, **AMC**, **Vox**, and more, Aflam offers a seamless way to view, compare, and book movies—all in one place.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### AI-Driven Innovations
+- **AI-Powered Movie Recommendations**: 
+  - Personalized suggestions tailored to individual preferences.
+  - Mood-based recommendations to match your current emotional state.
+- **Movie Poster Recognition**: 
+  - Instantly discover showtimes and booking options by capturing a photo of any movie poster.
+
+### Benefits
+- Unified platform for all major cinemas.
+- Advanced filtering options to make movie selection easy and intuitive.
+- Modern, user-friendly design focused on delivering a seamless experience.
+
+## Development Approach
+
+Aflam will be developed using the **Agile methodology** to ensure:
+- Flexibility in responding to user feedback.
+- Iterative improvements for a high-quality product.
+- Efficient collaboration among development teams.
+
+Stay tuned for more updates as Aflam transforms the way you enjoy movies!
+
+
+## Build Instructions
+
+### Prerequisites
+Before you start, make sure you have the following installed on your system:
+- [Node.js](https://nodejs.org/) (version 14 or above)
+- [npm](https://www.npmjs.com/) (npm comes bundled with Node.js)
+
+### Cloning the Repository
+1. Clone the project repository:
+   `git clone https://github.com/Waelhab/loremipsum.git`
+
+2. Navigate to the project directory:
+    `cd loremipsum`
+
+3. Install Vite:
+    `npm install vite`
+
+4. Start the server:
+    `npm run dev`
+
+# UI
+
+The following is a guide on the interface of our React application, to help you better understand what is currently available in this version.
+
+## Login Page
+
+![alt text](Login.png)
+
+## Home Page
+
+![alt text](Home.png)
+
+## Filter By City
+
+![alt text](FilterMovies.png)
+
+## Movie Details
+
+![alt text](MovieDetails.png)
+
+## User History
+
+![alt text](History.png)
+
