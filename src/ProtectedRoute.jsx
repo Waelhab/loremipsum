@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Navigate } from "react-router-dom";
 import { UserContext } from "./UserContext";
 
+// Here we just implemented the default "ProtectedRoute" component
 const ProtectedRoute = ({ children }) => {
   const { user } = useContext(UserContext);
 

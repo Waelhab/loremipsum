@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const MovieGrid = () => {
+  // initialized all the required variables with appropriate starting values
   const [movies, setMovies] = useState([]);
   const [visibleMovies, setVisibleMovies] = useState([]);
   const [startIndex, setStartIndex] = useState(0);
   const [loading, setLoading] = useState(true);
 
+  // Loads when the page renders, fetching movie data and setting visibleMovies to 4 to display 4 movies at a time
   useEffect(() => {
     fetch("/data.json")
       .then((response) => response.json())
@@ -21,22 +23,26 @@ const MovieGrid = () => {
       });
   }, []);
 
+  // Next 4 movies button handler
   const handleNext = () => {
     if (startIndex + 4 < movies.length) {
       setStartIndex((prevIndex) => prevIndex + 4);
     }
   };
 
+  // Previous 4 movies button handler, checks that the grid is not on the first page to avoid errors
   const handlePrev = () => {
     if (startIndex > 0) {
       setStartIndex((prevIndex) => prevIndex - 4);
     }
   };
 
+  // When the page is rendered sets visibleMovies to the first 4 movies and rerenders whenever the startIndex or movies changes, effectively acting as an event handler
   useEffect(() => {
     setVisibleMovies(movies.slice(startIndex, startIndex + 4));
   }, [startIndex, movies]);
 
+  // If the data has not finished loading we display a simple "Loading..." to ensure the user that the page is loading
   if (loading) {
     return <div className="text-center">Loading...</div>;
   }

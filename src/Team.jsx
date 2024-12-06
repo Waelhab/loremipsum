@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+// Our group members information for the about us page
 const Team = () => {
   const teamMembers = [
     {
@@ -36,6 +37,7 @@ const Team = () => {
     },
   ];
 
+  // used Tailwind to make cards to display the above info
   return (
     <div className="bg-gray-900 lg:h-screen flex items-center justify-center px-6 py-16">
       <div className="max-w-6xl text-center">
@@ -74,6 +76,7 @@ const Team = () => {
                 LinkedIn Profile
               </a>
               <ul className="text-left mt-4 text-gray-600">
+                {/* display each team members achievements */}
                 {member.achievements.map((achievement, i) => (
                   <li key={i} className="flex items-start">
                     <span className="text-green-500 mr-2">•</span>
@@ -85,7 +88,7 @@ const Team = () => {
           ))}
         </div>
 
-        {/* Back to Home Button */}
+        {/* navigate back to the home page */}
         <div className="mt-12">
           <Link
             to="/"

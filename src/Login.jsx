@@ -4,6 +4,8 @@ import { UserContext } from "./UserContext";
 import { auth, googleProvider, signInWithPopup } from "./firebase";
 
 export default function Login() {
+
+  // This is an example of the credentials to simulate how each user's data will be stored in our database
   const credentials = {
     Wael: {
       email: "wael@gmail.com",
@@ -23,7 +25,7 @@ export default function Login() {
   };
 
   
-
+// initializing some useState variables
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -31,14 +33,16 @@ export default function Login() {
 
   const navigate = useNavigate();
 
-  // Manual login
+  // Manual login using the above credentials
   const handleSubmit = (e) => {
     e.preventDefault();
+    // search for the user's email and password in our credentials
     const user = Object.keys(credentials).find(
       (key) =>
         credentials[key].email === email && credentials[key].password === password
     );
 
+    // Check to see if the user was found, otherwise ask the user to try again
     if (user) {
       setUser({ name: user, email: credentials[user].email }); // Update the context
       navigate("/home"); // Navigate to home
@@ -47,7 +51,7 @@ export default function Login() {
     }
   };
 
-  // Google Login
+  // Google Login using firebase
   const handleGoogleLogin = async () => {
     try {
       const result = await signInWithPopup(auth, googleProvider);
@@ -66,7 +70,7 @@ export default function Login() {
         <h2 className="text-2xl font-bold text-center text-white mb-6">
           Login to Your Account
         </h2>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}> {/* Manual login handler */}
           <div className="mb-4">
             <label htmlFor="email" className="block text-sm font-medium text-gray-300">
               Email Address
@@ -103,7 +107,7 @@ export default function Login() {
         </form>
         <div className="text-center text-gray-400 my-4">or</div>
         <button
-          onClick={handleGoogleLogin}
+          onClick={handleGoogleLogin} // Handling the firebase authentication event
           className="w-full py-2 text-white bg-blue-500 hover:bg-blue-600 rounded-lg shadow-md flex items-center justify-center space-x-3"
         >
           <img
