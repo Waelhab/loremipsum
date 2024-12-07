@@ -2,15 +2,6 @@
 
 **Aflam** is a cutting-edge platform designed to revolutionize the moviegoing experience in Saudi Arabia. By integrating multiple cinema chains such as **Muvi**, **AMC**, **Vox**, and more, Aflam offers a seamless way to view, compare, and book movies—all in one place.
 
-## Features
-
-### AI-Driven Innovations
-- **AI-Powered Movie Recommendations**: 
-  - Personalized suggestions tailored to individual preferences.
-  - Mood-based recommendations to match your current emotional state.
-- **Movie Poster Recognition**: 
-  - Instantly discover showtimes and booking options by capturing a photo of any movie poster.
-
 ### Benefits
 - Unified platform for all major cinemas.
 - Advanced filtering options to make movie selection easy and intuitive.
