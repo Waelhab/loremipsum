@@ -13,13 +13,15 @@ export default function Navbar() {
           {/* Logo */}
           <div className="flex items-center">
             <span className="text-gray-300 text-2xl font-bold tracking-wide">
+              {/* Checks if the userContext that was passed is true meaning the user is logged in. If true display a personal message, otherwise display "Aflam" */}
               {user ? `Welcome, ${user.name}` : "Aflam"}
             </span>
           </div>
 
-          {/* Menu for larger screens */}
+          {/* Menu for larger screens using Tailwind */}
           <div className="hidden md:flex space-x-4 items-center">
             
+            {/* If the user is logged in display "History" and "Log out" buttons, else only show the "Sign In" button (Asked GPT to refactor this code block) */}
             {user ? (
               <>
                 <Link
@@ -58,6 +60,7 @@ export default function Navbar() {
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
               >
+                {/* Asked gen AI to create the  hamburger style menu icon */}
                 {isOpen ? (
                   <path
                     strokeLinecap="round"
@@ -78,7 +81,7 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Dropdown menu for mobile */}
+        {/* Dropdown menu for mobile which displays the same buttons as above, and implements the same logic as well*/}
         {isOpen && (
           <div className="flex flex-col md:hidden items-center space-y-4 mt-4 pb-11">
             

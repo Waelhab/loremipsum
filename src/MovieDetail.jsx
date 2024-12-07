@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 const MovieDetail = () => {
-  const { id } = useParams(); // Get movie ID from URL
-  const navigate = useNavigate(); // For navigation
-  const [movie, setMovie] = useState(null);
+  const { id } = useParams(); // Get movie ID from URL the user selected
+  const navigate = useNavigate(); // For navigation to the previous "DOM" element
+  const [movie, setMovie] = useState(null); // Initially the movie object is set to null
 
   useEffect(() => {
     // Fetch data from data.json file
@@ -18,6 +18,7 @@ const MovieDetail = () => {
       .catch((error) => console.error("Error fetching data:", error));
   }, [id]);
 
+  // If no movie is found, we display a "404" page to handle any users manually changing the url
   if (!movie) {
     return <div className="text-center text-black">Loading... film not found</div>;
   }
@@ -33,7 +34,7 @@ const MovieDetail = () => {
               alt={movie.name}
               className="w-full h-auto rounded-lg shadow-lg"
             />
-            {/* Watch Trailer Button */}
+            {/* Watch Trailer Button opens a new window with the youtube trailer */}
             <button
               className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 rounded-lg text-white hover:bg-opacity-70 transition"
               onClick={() => window.open(movie.youtube, "_blank")}
@@ -46,6 +47,7 @@ const MovieDetail = () => {
                 stroke="currentColor"
                 strokeWidth={2}
               >
+                {/* We asked Gen-AI to help us create the play button icon*/}
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -54,9 +56,9 @@ const MovieDetail = () => {
               </svg>
             </button>
           </div>
-          {/* Back Button */}
+          {/* Back Button with an arrow icon */}
           <button
-            onClick={() => navigate(-1)} // Navigate back to the previous page
+            onClick={() => navigate(-1)} // Navigates back to the previous page in the DOM router
             className="mt-6 w-full lg:w-auto bg-gray-800 hover:bg-gray-700 text-white px-6 py-2 rounded-md shadow-lg transition text-sm font-medium"
           >
             &#8592; Back
@@ -65,6 +67,7 @@ const MovieDetail = () => {
 
         {/* Right Section - Info and Showtimes */}
         <div className="lg:w-2/5">
+          {/* All of the movie data is parsed and stored in the movie object, so we can just extract the required info easily */}
           <h1 className="text-4xl font-bold mt-6 lg:mt-0">{movie.name}</h1>
           <p className="text-lg text-gray-400 mt-2">
             {movie.ageRating} | {movie.runningTime} | {movie.language}
@@ -81,16 +84,19 @@ const MovieDetail = () => {
           </p>
 
           <h2 className="text-2xl font-bold mb-4">Showtimes</h2>
+          {/* Used map here to execute this block of code for each iteration inside the cinema attribute */}
           {movie.showTimes.cinemas.map((cinema) => (
             <div key={cinema.cinemaId} className="mb-6">
               <h3 className="text-lg font-semibold">{cinema.cinemaName}</h3>
               <div className="bg-gray-800 rounded-lg p-4 shadow-md">
+                {/* Applying the following code to each date in the cinema.dates attribute */}
                 {cinema.dates.map((show) => (
                   <div key={show.date} className="mb-4">
                     <p className="text-gray-300 mb-2">
                       <strong>{show.date}</strong>
                     </p>
                     <div className="flex flex-wrap gap-2">
+                      {/* Applied the button markup and CSS for each time attribute in the times attribute*/}
                       {show.times.map((time, idx) => (
                         <button
                           key={idx}

@@ -31,7 +31,7 @@ export default function Footer() {
               className="flex items-center space-x-2 text-gray-300 hover:text-white transition duration-300"
             >
               <span>Privacy Policy</span>
-              <FaDownload className="w-4 h-4" />
+              <FaDownload className="w-4 h-4" /> {/* This is just adding the download icon */}
             </a>
           </div>
         </div>
@@ -45,7 +45,7 @@ export default function Footer() {
             &copy; 2024 Aflam. All rights reserved.
           </p>
 
-          {/* Social Icons */}
+          {/* Social Icons, these have been removed temporarily */}
           
         </div>
       </div>

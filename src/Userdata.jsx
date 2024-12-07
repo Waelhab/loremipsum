@@ -6,7 +6,7 @@ const UserData = () => {
   const navigate = useNavigate();
   const { user } = useContext(UserContext); // Access user credentials from context
 
-  // Replace this with your `moviesWatched` array
+ // Used gen AI to generate these mock movie details
 
   const moviesWatched = [
     {
@@ -271,7 +271,7 @@ const UserData = () => {
     },
   ];
 
-  // Mock user credential object for demonstration
+  // This is where we inject the movies that a user has watched into our simulated local database
   const userCredentials = {
     Wael: {
       email: "wael@gmail.com",
@@ -290,6 +290,7 @@ const UserData = () => {
     },
   };
 
+  // used gen AI to debug the following code block to help us insure we correctly calculate the user's details
   const allowedMovieIds = userCredentials[user?.name]?.movies || []; // Get allowed movie IDs
   const filteredMovies = moviesWatched.filter((movie) => allowedMovieIds.includes(movie.id));
 
@@ -301,6 +302,7 @@ const UserData = () => {
     0
   );
 
+  // This is the variable that controls how may entries are shown per page
   const itemsPerPage = 5;
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -319,7 +321,7 @@ const UserData = () => {
       </div>
 
       <div className="max-w-6xl mx-auto">
-        {/* Summary Section */}
+        {/* Summary Section, if a user has no history display an appropriate message */}
         {filteredMovies.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             <div className="p-6 bg-gray-800 rounded-lg shadow-md">
@@ -361,6 +363,7 @@ const UserData = () => {
                 </tr>
               </thead>
               <tbody>
+                {/* Each tr in this table will iterate over currentMovies and map the information to the correct coloumns */}
                 {currentMovies.map((movie, index) => (
                   <tr key={index} className="border-t border-gray-600">
                     <td className="px-4 py-2">{movie.name}</td>
@@ -397,6 +400,7 @@ const UserData = () => {
 
             {/* Pagination */}
             <div className="flex justify-between items-center mt-4">
+              {/* This button handles changing the page to the previous one, unless the currentPage === 1 */}
               <button
                 disabled={currentPage === 1}
                 onClick={() => handlePageChange(currentPage - 1)}
@@ -407,6 +411,7 @@ const UserData = () => {
               <p className="text-gray-300">
                 Page {currentPage} of {Math.ceil(filteredMovies.length / itemsPerPage)}
               </p>
+              {/* This button handles changing the page to the next one, unless the page is the last one */}
               <button
                 disabled={currentPage === Math.ceil(filteredMovies.length / itemsPerPage)}
                 onClick={() => handlePageChange(currentPage + 1)}
@@ -420,6 +425,7 @@ const UserData = () => {
 
         {/* Back Button */}
         <div className="mt-8 text-center">
+          {/* Navigate back once on the react router dom */}
           <button
             onClick={() => navigate(-1)}
             className="px-6 py-3 bg-pink-500 text-white rounded-lg shadow-md hover:bg-pink-600"
